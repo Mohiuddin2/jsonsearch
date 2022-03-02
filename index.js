@@ -9,14 +9,11 @@ const app = express();
 // Connect DB
 // connectDB();
 // app.use('/users', userRoute)
-
+app.use(express.json())
 
 app.get('/', async(req, res) => {
-  
-  let data = '';
-
   // parse json data here...
-  let jsondata = {
+  let data = {
     "name":{
       'first': 'Daniel',
       'last': 'Smith', 
@@ -24,25 +21,30 @@ app.get('/', async(req, res) => {
       'last': 'Smith'
       },
       'age': 45
-  }
-  
-  const obj =
-  Object.keys(jsondata).forEach(function(key){
-    if (jsondata.name.key === 'N/A') {
-      delete jsondata[key];
     }
-  });
 
+  for (let key in data) {
+    if (Array.isArray(data[key])) {
 
- console.log(Object[key])
-  // delete jsondata.name.
+        const filtered = data[key].filter(item => item !== 'N/A' && item !== '-' && item !== '');
+        data[key] = filtered
 
+    } else if (typeof data[key] === 'object') {
 
-  // console.log(res);
+        for (let item in data[key]) {
+            if (data[key][item] === 'N/A' || data[key][item] === '-' || data[key][item] === '') {
+                delete data[key][item]
+            }
+        }
 
-  res.send(jsondata.name.middle)
+    } else {
 
-});
+        if (data[key] === 'N/A' || data[key] === '-' || data[key] === '') {
+            delete data[key]
+        }
+
+    }
+}});
 
 
 
