@@ -1,0 +1,12 @@
+• • • BACKEND 
+We want to create an API that returns a list of ALL active products in a given category. 
+Our products are stored in an external service and can be retrieved using the following API call GET https: —:• The external-service api returns 10 results per page 
+URL params : category is the category id (eg. 1001, 1002, 1003) page determines which page to retrieve data for, starting at page 1 
+Return result: data: 
+id: 101, name: "product x", price: 100, status: "ACTIVE" 
+id: 105, name: "product y", price: 50, status: "INACTIVE'. }, 
+••• 
+page: 1, total_pages: 10 
+If no data for category or page specified 
+data: [I, page: 1, total_pages: 1 
+function getActiveProducts( 

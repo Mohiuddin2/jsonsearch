@@ -1,0 +1,22 @@
+{
+  "name": "binaryco",
+  "version": "1.0.0",
+  "description": "Login & Register",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "Login"
+  ],
+  "author": "Mohammed Mohiuddin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1",
+    "morgan": "^1.10.0"
+  }
+}
